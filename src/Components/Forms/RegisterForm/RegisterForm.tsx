@@ -34,7 +34,7 @@ const RegisterForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (
-      registerData === {} ||
+      Object.keys(registerData).length === 0 ||
       !registerData.email ||
       !registerData.password ||
       !registerData.displayName

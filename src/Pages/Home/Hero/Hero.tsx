@@ -36,10 +36,10 @@ const Hero = () => {
                   Know more:{" "}
                 </span>{" "}
                 <a
-                  href="tel:+8801212345678"
+                  href="tel:+61403352321"
                   className="text-indigo-600 font-bold"
                 >
-                  +8801212345678
+                  +61403352321
                 </a>
               </p>
 

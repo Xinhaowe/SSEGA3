@@ -26,7 +26,7 @@ const LoginForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (loginData === {} || !loginData.email || !loginData.password) {
+    if (Object.keys(loginData).length === 0 || !loginData.email || !loginData.password) {
       setError("Please Enter Your Email And Password");
     } else {
       emailSignIn();
