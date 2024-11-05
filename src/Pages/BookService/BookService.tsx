@@ -122,10 +122,27 @@ const BookService = () => {
                         type="email"
                         name="email"
                         id="email-address"
-                        value={user.email}
-                        disabled
+                        // value={user.email}
                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                      />
+                        
+                        onChange={handleOnChange}
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                        required
+                        title="Please enter a valid email address, like name@domain.com"
+                        />
+                    </div>
+
+                    <div className="col-span-6 ">
+                    <label>
+                    <input
+                          type="checkbox"
+                          name="vaccinated"
+                          onChange={handleOnChange}
+                          className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          required
+                        />{" "}
+                        Have you been vaccinated?
+                      </label>
                     </div>
 
                     <div className="col-span-6">
