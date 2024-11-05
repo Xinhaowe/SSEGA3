@@ -14,7 +14,7 @@ const AllServices = () => {
 
   // deleting a service
   const removePlan = () => {
-    const url = `https://homeservice-ixli.onrender.com/services/${removeId}`;
+    const url = `https://home-service-api-g19g.onrender.com/services/${removeId}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -30,7 +30,7 @@ const AllServices = () => {
     setOpen(false);
   };
   useEffect(() => {
-    const url = `https://homeservice-ixli.onrender.com/services`;
+    const url = `https://home-service-api-g19g.onrender.com/services`;
     axios.get(url).then((data: any) => {
       console.log(data.data);
 

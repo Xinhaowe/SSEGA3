@@ -7,9 +7,9 @@ import Feature from "./../Feature/Feature";
 const Home = () => {
   return (
     <div>
-      <Banner />
+      {/* <Banner /> */}
       <Hero />
-      <Feature />
+      {/* <Feature /> */}
       <Services />
       <Review />
     </div>

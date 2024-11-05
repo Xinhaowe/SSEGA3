@@ -27,7 +27,7 @@ const useFirebase = () => {
   auth.useDeviceLanguage();
 
   const googleProvider = new GoogleAuthProvider();
-  const twitterProvider = new TwitterAuthProvider();
+  // const twitterProvider = new TwitterAuthProvider();
 
   // google sign in
   const socialSignIn = (socialProvider: string) => {
@@ -62,7 +62,8 @@ const useFirebase = () => {
     //     });
     // }
     const provider =
-      socialProvider === "google" ? googleProvider : twitterProvider;
+      // socialProvider === "google" ? googleProvider : twitterProvider;
+      socialProvider === "google" ? googleProvider : googleProvider;
 
     try {
       return signInWithPopup(auth, provider).then((result: any) => {

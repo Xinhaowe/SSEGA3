@@ -7,7 +7,8 @@ const Services = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const url = `https://homeservice-ixli.onrender.com/services`;
+    // const url = `https://homeservice-ixli.onrender.com/services`;
+    const url = 'https://home-service-api-g19g.onrender.com/services';
     axios.get(url).then((data: any) => {
       setLoading(false);
       setServices(data.data);

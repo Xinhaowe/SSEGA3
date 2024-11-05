@@ -4,6 +4,27 @@ import axios from "axios";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useAuth from "./../../Hooks/useAuth";
+
+interface ServiceData {
+  serviceName: string;
+  serviceImageLink: string;
+  description: string;
+  servicePrice: number;
+}
+
+interface FormData {
+  name: string;
+  email: string;
+  uid: string;
+  serviceId: string;
+  serviceName: string;
+  paid: boolean;
+  price: number;
+  address: string;
+  city: string;
+  date: string;
+}
+
 const BookService = () => {
   const [serviceData, setServiceData] = useState<any>([]);
   const [formData, setFormData] = useState<any>([]);

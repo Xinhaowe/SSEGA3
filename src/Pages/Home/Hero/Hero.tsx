@@ -19,11 +19,11 @@ const Hero = () => {
           <main className="mx-auto max-w-7xl px-4 sm:px-6 z-10 lg:px-8 pt-10 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
-                <span className="block xl:inline">The absolute best </span>{" "}
+                {/* <span className="block xl:inline">The absolute best </span>{" "} */}
                 <span className="block text-indigo-600 xl:inline">
-                  Home Service
+                  Your Home Service
                 </span>{" "}
-                <span className="block xl:inline">in your area.</span>
+                <span className="block xl:inline">On the way</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 dark:text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 Always providing the best home service with specialized{" "}
@@ -33,40 +33,16 @@ const Hero = () => {
               </p>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 <span className="text-gray-800 dark:text-white">
-                  Know more:{" "}
+                  Click to call:{" "}
                 </span>{" "}
                 <a
                   href="tel:+61403352321"
-                  className="text-indigo-600 font-bold"
+                  className="text-teal-500 font-bold"
                 >
                   +61403352321
                 </a>
               </p>
 
-              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                <div className="rounded-md shadow">
-                  <Link
-                    to="/hire"
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-                  >
-                    <span>
-                      <PlusCircleIcon className="w-5 h-5" />
-                    </span>
-                    <span>Hire Someone</span>
-                  </Link>
-                </div>
-                <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <Link
-                    to="/services"
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
-                  >
-                    <span>
-                      <LocationMarkerIcon className="w-5 h-5" />
-                    </span>
-                    <span>Explore Services</span>
-                  </Link>
-                </div>
-              </div>
             </div>
           </main>
         </div>
