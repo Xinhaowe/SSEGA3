@@ -40,7 +40,7 @@ const LoginForm = () => {
             <MailIcon width="15" height="15" />
           </span>
           <input
-            type="text"
+            type="email"
             id="sign-in-email"
             name="email"
             onChange={handleOnChange}

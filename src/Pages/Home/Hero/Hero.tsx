@@ -1,6 +1,8 @@
 import { LocationMarkerIcon, PlusCircleIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 import HeroImage from "../../../Assets/homepage.jpg";
+import { APIProvider,Map } from "@vis.gl/react-google-maps";
+
 
 const Hero = () => {
   return (
@@ -31,6 +33,15 @@ const Hero = () => {
                   designer, cleaner, plumber and so on.
                 </span>{" "}
               </p>
+              <APIProvider apiKey={"AIzaSyDgicFQQLNsNJsh_Tajqhds2UIwFGdLzNE"} onLoad={() => console.log("maps working")}>
+                <Map
+                style={{width: '100vw', height: '100vh'}}
+                defaultCenter={{lat: 22.54992, lng: 0}}
+                defaultZoom={3}
+                gestureHandling={'greedy'}
+                disableDefaultUI={true}
+                />
+              </APIProvider>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 <span className="text-gray-800 dark:text-white">
                   Click to call:{" "}
