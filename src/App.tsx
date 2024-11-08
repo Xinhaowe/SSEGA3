@@ -10,6 +10,7 @@ import PrivateOutlet from "./Pages/LoginRegister/PrivateOutlet/PrivateOutlet";
 import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
+import StripeContainer from "./Pages/PayService/StripeContainer";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="dashboard/*" element={<DashBoardRoot />} />
           </Route>
           <Route path="/admin/*" element={<AddAdminForm />} />
+          <Route path="/pay" element={<StripeContainer />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
