@@ -16,9 +16,10 @@ export function MapComponent () {
     const [markerRef, marker] = useAdvancedMarkerRef();
     
     return(<div className="map-container">
-        <Map defaultZoom={13} defaultCenter={{ lat: -34.92866, lng: 138.59863 }} mapId={"d7ff29f1fcb73e86"} disableDefaultUI={false}>
+        <Map defaultZoom={13} defaultCenter={{ lat: -34.92866, lng: 138.59863 }} mapId={"d7ff29f1fcb73e86"} disableDefaultUI={true}>
             <UserMarker place={selectedPlace}></UserMarker>
             <WorkerMarker postionList={workPositions}></WorkerMarker>
+            <AdvancedMarker ref={markerRef} position={null} />
         </Map>
         <MapControl position={ControlPosition.TOP}>
         <div className="autocomplete-control">
@@ -34,7 +35,7 @@ interface UserMarkerProps {
 }
 
 export function UserMarker ({ place }: UserMarkerProps) {
-    const userLocation = place?.geometry?.location ? { lat: place.geometry.location.lat(), lng: place.geometry.location.lng() } : { lat: -34.8618706, lng: 138.6338319 };
+    const userLocation = place?.geometry?.location ? { lat: place.geometry.location.lat(), lng: place.geometry.location.lng() } : null;
     const [open,setOpen] = useState(false);
 
     const [markerRef, marker] = useAdvancedMarkerRef();
