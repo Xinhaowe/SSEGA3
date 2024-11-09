@@ -11,6 +11,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 import StripeContainer from "./Pages/PayService/StripeContainer";
+import SpecialService from "./Pages/SepcialService/SpecialService";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           </Route>
           <Route path="/admin/*" element={<AddAdminForm />} />
           <Route path="/pay" element={<StripeContainer />} />
+          <Route path="/SpecialService" element={<SpecialService />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
