@@ -5,14 +5,6 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useAuth from "./../../Hooks/useAuth";
 import workPositionsData from './workpostion.json';
-import SpecialService from "./SpecialService";
-
-interface ServiceData {
-  serviceName: string;
-  serviceImageLink: string;
-  description: string;
-  servicePrice: number;
-}
 
 interface FormData {
   name: string;
@@ -25,12 +17,6 @@ interface FormData {
   address: string;
   city: string;
   date: string;
-}
-
-interface BookingInfo {
-    workerId: number;
-    userLocationLat: number;
-    userLocationLog: number; 
 }
 
 const BookSpecialService = () => {
@@ -79,32 +65,19 @@ const BookSpecialService = () => {
     <div>
       {/* <BookedServiceNotification /> */}
       <div className="mt-10 sm:mt-0 mx-8 my-8">
-        <div className="md:grid md:grid-cols-5 md:gap-6">
-          <div className="md:col-span-2">
-            <div className="px-4 sm:px-0">
-              <h3 className="text-4xl font-medium leading-6 text-gray-900">
-                {"SpecialService"}
-              </h3>
-              <img
-                src={"https://static.vecteezy.com/system/resources/thumbnails/005/544/770/small/profile-icon-design-free-vector.jpg"}
-                className="w-5/6 my-4"
-              />
-              <p className="mt-1 text-xl text-gray-600">
-                {"Discirption"}
-              </p>
-            </div>
-          </div>
+        <div>
           <div className="mt-5 md:mt-0 md:col-span-3">
             <form onSubmit={handleBookService}>
               <div className="shadow overflow-hidden sm:rounded-md">
                 <div className="px-4 py-5 bg-white sm:p-6">
+                  <h2 className="text-2xl font-bold text-center mb-6">Book Special Service</h2>
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6">
                       <label
                         htmlFor="first-name"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        Name
+                        Contact Name
                       </label>
                       <input
                         type="text"
@@ -121,7 +94,7 @@ const BookSpecialService = () => {
                         htmlFor="email-address"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        Email address
+                        Contact Email
                       </label>
                       <input
                         type="email"
@@ -150,9 +123,8 @@ const BookSpecialService = () => {
                       </label>
                     </div>
 
-                   
-
                     
+
                     {/* date picker */}
                     <div className="col-span-6 sm:col-span-5 lg:col-span-4">
                       <label
@@ -173,12 +145,14 @@ const BookSpecialService = () => {
                   </div>
                 </div>
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                  <button
-                    type="submit"
-                    className="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    Book Now
-                  </button>
+                    <Link
+                        type="button"
+                        to="/pay"
+                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                        onClick={() => setBooked(false)}
+                     >
+                    Pay A Deposite
+                  </Link>
                 </div>
               </div>
             </form>
@@ -192,7 +166,7 @@ const BookSpecialService = () => {
           initialFocus={cancelButtonRef}
           onClose={() => setBooked(false)}
         >
-          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+          <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -256,3 +230,4 @@ const BookSpecialService = () => {
 };
 
 export default BookSpecialService;
+
