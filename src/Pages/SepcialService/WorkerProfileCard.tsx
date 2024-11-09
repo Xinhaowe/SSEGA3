@@ -1,28 +1,36 @@
 import React from 'react';
 import "./UserProfileCard.css";
 
-export default function WorkerProfileCard(): JSX.Element {
+interface Worker {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  skills: string[];
+}
+
+interface WorkerProfileCardProps {
+  worker: Worker;
+}
+
+export default function WorkerProfileCard({ worker }: WorkerProfileCardProps): JSX.Element {
   return (
     <div className="card-container">
       <img
         className="round"
         src="https://static.vecteezy.com/system/resources/thumbnails/005/544/770/small/profile-icon-design-free-vector.jpg"
+        alt="Profile"
       />
-      <h3>Jhon Smith</h3>
-
+      <h3>{worker.firstName} {worker.lastName}</h3>
+      <p>Phone: {worker.phoneNumber}</p>
       <div className="buttons">
         <button className="primary">Book A Service</button>
       </div>
       <div className="skills">
         <h6>Skills</h6>
         <ul>
-          <li>Plumbing</li>
-          <li>Electrical</li>
-          <li>Carpentry</li>
-          <li>AC unit installation and repair</li>
-          <li>Painting and Decorating</li>
-          <li>Appliance Repair</li>
-          <li>Cleaning Services</li>
+          {worker.skills.map((skill, index) => (
+            <li key={index}>{skill}</li>
+          ))}
         </ul>
       </div>
     </div>

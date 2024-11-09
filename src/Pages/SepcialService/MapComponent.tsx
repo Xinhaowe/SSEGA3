@@ -6,11 +6,33 @@ import './MapComponent.css';  // Add this to import the CSS styling
 
 export function MapComponent () {
     const workPositions = [
-        { lat: -34.890957, lng: 138.564767,userID: "ewigf" },
-        { lat: -34.907583, lng: 138.636626,userID: "qweqdsa"},
-        { lat: -34.947853, lng: 138.632647,userID: "nstrqw" },
-        { lat: -34.929234, lng: 138.606246,userID: "wbhbdhc" }
+        { lat: -34.928499, lng: 138.600746, userID: "ewigf", firstName: "Jhone", lastName: "Smith", phoneNumber: "0400000000", skills: ["Plumbing", "Electrical", "Carpentry"] },
+        { lat: -34.950000, lng: 138.530000, userID: "asde12", firstName: "Jane", lastName: "Doe", phoneNumber: "0401234567", skills: ["Painting", "Roofing"] },
+        { lat: -34.921230, lng: 138.599503, userID: "fgte56", firstName: "Michael", lastName: "Johnson", phoneNumber: "0402345678", skills: ["Landscaping", "Bricklaying"] },
+        { lat: -34.930710, lng: 138.684884, userID: "hyu78s", firstName: "Emily", lastName: "Brown", phoneNumber: "0403456789", skills: ["Tiling", "Flooring"] },
+        { lat: -34.940000, lng: 138.520000, userID: "ikmno9", firstName: "William", lastName: "Taylor", phoneNumber: "0404567890", skills: ["Welding", "Machinery"] },
+        { lat: -34.910000, lng: 138.610098, userID: "qwe23r", firstName: "Olivia", lastName: "Wilson", phoneNumber: "0405678901", skills: ["Plumbing", "Electrical"] },
+        { lat: -34.926754, lng: 138.693670, userID: "rtuy34", firstName: "Sophia", lastName: "Martin", phoneNumber: "0406789012", skills: ["Carpentry", "Painting"] },
+        { lat: -34.930212, lng: 138.501213, userID: "uiop45", firstName: "James", lastName: "Clark", phoneNumber: "0407890123", skills: ["Roofing", "Bricklaying"] },
+        { lat: -34.933698, lng: 138.595937, userID: "mnvb67", firstName: "Mia", lastName: "Lee", phoneNumber: "0408901234", skills: ["Landscaping", "Welding"] },
+        { lat: -34.937843, lng: 138.602345, userID: "lkjh89", firstName: "Lucas", lastName: "Walker", phoneNumber: "0409012345", skills: ["Tiling", "Machinery"] },
+        { lat: -34.950000, lng: 138.540000, userID: "wer45t", firstName: "Ethan", lastName: "Hall", phoneNumber: "0410123456", skills: ["Flooring", "Bricklaying"] },
+        { lat: -34.939654, lng: 138.705478, userID: "zxcd90", firstName: "Amelia", lastName: "Young", phoneNumber: "0411234567", skills: ["Plumbing", "Carpentry"] },
+        { lat: -34.944321, lng: 138.498765, userID: "plmn12", firstName: "Charlotte", lastName: "King", phoneNumber: "0412345678", skills: ["Electrical", "Painting"] },
+        { lat: -34.935432, lng: 138.497876, userID: "bnvc34", firstName: "Alexander", lastName: "Green", phoneNumber: "0413456789", skills: ["Roofing", "Landscaping"] },
+        { lat: -34.929876, lng: 138.690123, userID: "asdf56", firstName: "Isabella", lastName: "Baker", phoneNumber: "0414567890", skills: ["Welding", "Machinery"] },
+        { lat: -34.940123, lng: 138.712345, userID: "ghjk78", firstName: "Henry", lastName: "Scott", phoneNumber: "0415678901", skills: ["Tiling", "Flooring"] },
+        { lat: -34.943567, lng: 138.501234, userID: "qwsa90", firstName: "Ella", lastName: "Adams", phoneNumber: "0416789012", skills: ["Plumbing", "Electrical"] },
+        { lat: -34.941234, lng: 138.706789, userID: "tyui23", firstName: "Benjamin", lastName: "Mitchell", phoneNumber: "0417890123", skills: ["Carpentry", "Bricklaying"] },
+        { lat: -34.922345, lng: 138.594567, userID: "oplk45", firstName: "Ava", lastName: "Perez", phoneNumber: "0418901234", skills: ["Painting", "Roofing"] },
+        { lat: -34.932456, lng: 138.707890, userID: "hjkl67", firstName: "Jack", lastName: "Carter", phoneNumber: "0419012345", skills: ["Landscaping", "Welding"] },
+        { lat: -34.936789, lng: 138.500234, userID: "vbnm89", firstName: "Grace", lastName: "Murphy", phoneNumber: "0420123456", skills: ["Machinery", "Tiling"] },
+        { lat: -34.929012, lng: 138.596543, userID: "rtyu12", firstName: "Liam", lastName: "Rodriguez", phoneNumber: "0421234567", skills: ["Flooring", "Bricklaying"] },
+        { lat: -34.938765, lng: 138.604321, userID: "asdf34", firstName: "Zoe", lastName: "Lewis", phoneNumber: "0422345678", skills: ["Plumbing", "Carpentry"] },
+        { lat: -34.927654, lng: 138.599876, userID: "qwer56", firstName: "Hannah", lastName: "Harris", phoneNumber: "0423456789", skills: ["Electrical", "Painting"] },
+        { lat: -34.931234, lng: 138.603456, userID: "tyui78", firstName: "Noah", lastName: "White", phoneNumber: "0424567890", skills: ["Roofing", "Landscaping"] }
     ];
+    
     const [selectedPlace, setSelectedPlace] =
     useState<google.maps.places.PlaceResult | null>(null);
     const [markerRef, marker] = useAdvancedMarkerRef();
@@ -52,31 +74,42 @@ export function UserMarker ({ place }: UserMarkerProps) {
 }
 
 
-type userPosition = google.maps.LatLngLiteral & {userID : string};
-type Props = {postionList : userPosition[]}
-export function WorkerMarker ({postionList}:Props) {
+
+type Worker = {
+    lat: number;
+    lng: number;
+    userID: string;
+    firstName: string;
+    lastName: string;
+    phoneNumber: string;
+    skills: string[];
+};
+
+type Props = { postionList: Worker[] };
+
+export function WorkerMarker({ postionList }: Props) {
+    const [open, setOpen] = useState<string | null>(null);
     
-    const [open, setOpen] = useState<string|null>(null);
     return (
         <>
-          {postionList.map((position) => (
+            {postionList.map((position) => (
                 <React.Fragment key={position.userID}>
                     <AdvancedMarker
-                        position={position}
+                        position={{ lat: position.lat, lng: position.lng }}
                         onClick={() => setOpen(position.userID)}
                     >
                         <Pin background={'#FFFF00'} glyphColor={'#000'} borderColor={'#000'} />
                     </AdvancedMarker>
                     {open === position.userID && (
-                        <InfoWindow position={position} onCloseClick={() => setOpen(null)} >
-                            <WorkerProfileCard/>
+                        <InfoWindow position={{ lat: position.lat, lng: position.lng }} onCloseClick={() => setOpen(null)}>
+                            <WorkerProfileCard worker={position} />
                         </InfoWindow>
                     )}
                 </React.Fragment>
             ))}
-        </>);
+        </>
+    );
 }
-
 interface MapHandlerProps {
     place: google.maps.places.PlaceResult | null;
     marker: google.maps.marker.AdvancedMarkerElement | null;
