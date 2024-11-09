@@ -12,6 +12,7 @@ import Footer from "./Pages/Shared/Footer/Footer";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 import StripeContainer from "./Pages/PayService/StripeContainer";
 import SpecialService from "./Pages/SepcialService/SpecialService";
+import BookSpecialService from "./Pages/SepcialService/BookSepcialService";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/admin/*" element={<AddAdminForm />} />
           <Route path="/pay" element={<StripeContainer />} />
           <Route path="/SpecialService" element={<SpecialService />} />
+          <Route path="/BookSpecialService" element={<BookSpecialService />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
