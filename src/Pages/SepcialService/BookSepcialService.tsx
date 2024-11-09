@@ -49,7 +49,7 @@ const BookSpecialService = () => {
     formData.uid = user.uid;
     formData.serviceId = null;
     formData.serviceName = "SpecalService";
-    formData.paid = true;
+    formData.paid = false;
     formData.price = 80;
     axios
       .post("https://homeservice-ixli.onrender.com/bookingservice", formData)
