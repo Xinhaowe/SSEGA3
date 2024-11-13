@@ -3,10 +3,8 @@ import AddAdminForm from "../../../Components/Forms/AddAdminForm/AddAdminForm";
 import Spinner from "../../../Components/Spinner/Spinner";
 import useAuth from "../../../Hooks/useAuth";
 import AdminRoute from "../../LoginRegister/AdminRoute/AdminRoute";
-import AllServices from "../AllServices/AllServices";
 import MyServices from "../MyServices/MyServices";
 import NotFound from "./../../NotFound/NotFound";
-import AddService from "./../AddService/AddService";
 import BookedService from "./../BookedService/BookedService";
 import DashBoardHome from "./../DashBoardHome/DashBoardHome";
 import DashBoardNav from "./../DashBoardNav/DashBoardNav";
@@ -24,17 +22,8 @@ const DashBoardRoot = () => {
         <DashBoardNav />
         <div className=" md:space-y-4 md:px-4 md:py-3 mx-auto max-h-screen overflow-y-scroll overflow-x-hidden">
           <Routes>
-            <Route path="/" element={<DashBoardHome />} />
             <Route path="/bookings" element={<MyServices />} />
             <Route path="/review" element={<Review />} />
-            <Route
-              path="/admin/addservice"
-              element={
-                <AdminRoute>
-                  <AddService />
-                </AdminRoute>
-              }
-            />
             <Route
               path="/admin/addadmin"
               element={
@@ -48,14 +37,6 @@ const DashBoardRoot = () => {
               element={
                 <AdminRoute>
                   <BookedService />
-                </AdminRoute>
-              }
-            />
-            <Route
-              path="/admin/allservice"
-              element={
-                <AdminRoute>
-                  <AllServices />
                 </AdminRoute>
               }
             />

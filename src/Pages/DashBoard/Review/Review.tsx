@@ -25,7 +25,7 @@ const Review = () => {
       rate: rate,
     };
     axios
-      .post("https://homeservice-ixli.onrender.com/reviews", formData)
+      .post("https://home-service-api-g19g.onrender.com/reviews", formData)
       .then((res: any) => console.log(res))
       .then((data: any) => {
         window.alert("Review added");

@@ -21,14 +21,14 @@ const Hero = () => {
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
                 {/* <span className="block xl:inline">The absolute best </span>{" "} */}
-                <span className="block text-indigo-600 xl:inline">
+                <span className="block text-green-600 xl:inline">
                   Your Home Service
                 </span>{" "}
                 <span className="block xl:inline">On the way</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 dark:text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 Always providing the best home service with specialized{" "}
-                <span className="text-indigo-600">
+                <span className="text-green-600">
                   designer, cleaner, plumber and so on.
                 </span>{" "}
               </p>
@@ -50,11 +50,9 @@ const Hero = () => {
         </div>
       </div>
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img
-          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src={HeroImage}
-          alt=""
-        />
+        <button>
+          
+        </button>
       </div>
     </div>
   );

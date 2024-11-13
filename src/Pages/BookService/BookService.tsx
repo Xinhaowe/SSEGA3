@@ -36,7 +36,7 @@ const BookService = () => {
 
   const cancelButtonRef = useRef(null);
   useEffect(() => {
-    const url = `https://homeservice-ixli.onrender.com/service/${serviceId}`;
+    const url = `https://home-service-api-g19g.onrender.com/services/${serviceId}`;
     axios.get(url).then((data: any) => {
       setServiceData(data.data);
     });
@@ -107,7 +107,7 @@ const BookService = () => {
                         id="name"
                         value={user.displayName}
                         disabled
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
 
@@ -123,7 +123,7 @@ const BookService = () => {
                         name="email"
                         id="email-address"
                         // value={user.email}
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                         
                         onChange={handleOnChange}
                         pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
@@ -138,7 +138,7 @@ const BookService = () => {
                           type="checkbox"
                           name="vaccinated"
                           onChange={handleOnChange}
-                          className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          className="mt-1 focus:ring-green-500 focus:border-green-500 shadow-sm sm:text-sm border-gray-300 rounded-md"
                           required
                         />{" "}
                         Have you been vaccinated?
@@ -160,7 +160,7 @@ const BookService = () => {
                         required
                         autoComplete="street-address"
                         autoFocus
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
 
@@ -178,7 +178,7 @@ const BookService = () => {
                         required
                         id="city"
                         autoComplete="address-level2"
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
                     {/* date picker */}
@@ -187,7 +187,7 @@ const BookService = () => {
                         htmlFor="date"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        City
+                        Service Time
                       </label>
                       <input
                         type="datetime-local"
@@ -203,7 +203,7 @@ const BookService = () => {
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                   <button
                     type="submit"
-                    className="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                   >
                     Book Now
                   </button>
