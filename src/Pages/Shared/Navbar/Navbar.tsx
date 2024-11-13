@@ -9,10 +9,7 @@ const Navbar = () => {
   const { user, signOutUser } = useAuth();
   const navigation = [
     { name: "Home", to: "/home", current: true },
-    { name: "Services", to: "/services", current: false },
-    { name: "Hire Someone", to: "/hire_single", current: false },
-    { name: "About Us", to: "/dashboard", current: false },
-    { name: "Contact Us", to: "/login", current: false },
+    { name: "Special Services", to: "/SpecialServices", current: false },
   ];
   function classNames(...classes: any) {
     return classes.filter(Boolean).join(" ");
@@ -70,13 +67,6 @@ const Navbar = () => {
 
               {user.email ? (
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <button
-                    type="button"
-                    className="dark:bg-gray-800 p-1 rounded-full dark:text-gray-400 dark:hover:text-white hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 dark:focus:ring-white"
-                  >
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
                   <Menu as="div" className="ml-3 relative">
                     <div>
                       <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
@@ -116,22 +106,7 @@ const Navbar = () => {
                         <Menu.Item>
                           {({ active }) => (
                             <Link
-                              to="/"
-                              className={classNames(
-                                active
-                                  ? "bg-gray-100 dark:hover:bg-gray-600"
-                                  : "",
-                                "block px-4 py-2 text-sm text-gray-600 dark:text-white hover:bg-white"
-                              )}
-                            >
-                              Manage Your Profile
-                            </Link>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <Link
-                              to="/dashboard"
+                              to="/dashboard/bookings"
                               className={classNames(
                                 active
                                   ? "bg-gray-100 dark:hover:bg-gray-600"
@@ -139,7 +114,7 @@ const Navbar = () => {
                                 "block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-white"
                               )}
                             >
-                              DashBoard
+                              Dashboard
                             </Link>
                           )}
                         </Menu.Item>
@@ -154,7 +129,22 @@ const Navbar = () => {
                                 "block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-white"
                               )}
                             >
-                              Your Bookings
+                              Your bookings
+                            </Link>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <Link
+                              to="/dashboard/Review"
+                              className={classNames(
+                                active
+                                  ? "bg-gray-100 dark:hover:bg-gray-600"
+                                  : "",
+                                "block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-white"
+                              )}
+                            >
+                              Review
                             </Link>
                           )}
                         </Menu.Item>

@@ -58,6 +58,15 @@ const Services = () => {
                 ))}
               </div>
             </div>
+            
+            <div className="header mb-6 justify-between mb-12 gap-12">
+                <p className="text-3xl font-bold text-gray-800 mb-4 mt-16">
+                  Special Service
+                </p>
+                <p className="text-xl text-gray-800 mb-4 mt-6">
+                  Sereach your address to booking a nearby service
+                </p>
+              </div>
           </>
         )}
       </div>
