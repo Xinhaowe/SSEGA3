@@ -25,14 +25,14 @@ const Review = () => {
 
   const isMaliciousInput = (input: string) => {
     const maliciousPatterns = [
-      /<script.*?>.*?<\/script>/gi, // Detects script tags
-      /(['"]).*?(\1)(;|--)/gi, // Detects SQL injection patterns
-      /SELECT\s+.*?\s+FROM/gi, // Detects SQL select statements
-      /UPDATE\s+.*?\s+SET/gi, // Detects SQL update statements
-      /DELETE\s+FROM/gi, // Detects SQL delete statements
-      /INSERT\s+INTO/gi, // Detects SQL insert statements
-      /UNION\s+SELECT/gi, // Detects SQL union select statements
-      /<.*?>/g, // Detects other HTML tags
+      /<script.*?>.*?<\/script>/gi,
+      /(['"]).*?(\1)(;|--)/gi,
+      /SELECT\s+.*?\s+FROM/gi,
+      /UPDATE\s+.*?\s+SET/gi,
+      /DELETE\s+FROM/gi, 
+      /INSERT\s+INTO/gi,
+      /UNION\s+SELECT/gi, 
+      /<.*?>/g, 
     ];
     return maliciousPatterns.some((pattern) => pattern.test(input));
   };
