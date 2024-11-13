@@ -9,14 +9,40 @@ const Review = () => {
   const [rate, setRate] = useState(1);
 
   const detailsChange = (e: any) => {
-    setDetails(e.target.value);
+    const newDetails = e.target.value;
+    if (isMaliciousInput(newDetails)) {
+      window.alert("Invalid input detected. Please remove any malicious content.");
+      setDetails("");
+      window.location.reload();
+      return;
+    }
+    setDetails(newDetails);
   };
+
   const rateChange = (e: any) => {
     setRate(e.target.value);
   };
 
+  const isMaliciousInput = (input: string) => {
+    const maliciousPatterns = [
+      /<script.*?>.*?<\/script>/gi,
+      /(['"]).*?(\1)(;|--)/gi,
+      /SELECT\s+.*?\s+FROM/gi,
+      /UPDATE\s+.*?\s+SET/gi,
+      /DELETE\s+FROM/gi, 
+      /INSERT\s+INTO/gi,
+      /UNION\s+SELECT/gi, 
+      /<.*?>/g, 
+    ];
+    return maliciousPatterns.some((pattern) => pattern.test(input));
+  };
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    if (isMaliciousInput(details)) {
+      window.alert("Invalid input detected. Please remove any malicious content.");
+      return;
+    }
     const formData = {
       name: user.displayName,
       email: user.email,
@@ -31,6 +57,7 @@ const Review = () => {
         window.alert("Review added");
       });
   };
+
   return (
     <div>
       <form

@@ -23,7 +23,7 @@ export default function WorkerProfileCard({ worker }: WorkerProfileCardProps): J
       <h3>{worker.firstName} {worker.lastName}</h3>
       <p>Phone: {worker.phoneNumber}</p>
       <div className="buttons">
-        <button className="primary">Book A Service</button>
+        <button className="primary" onClick={() => window.location.href = '/BookSpecialService'}>Book A Service</button>
       </div>
       <div className="skills">
         <h6>Skills</h6>
