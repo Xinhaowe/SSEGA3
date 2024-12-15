@@ -33,17 +33,7 @@ const Hero = () => {
                 </span>{" "}
               </p>
               
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                <span className="text-gray-800 dark:text-white">
-                  Click to call:{" "}
-                </span>{" "}
-                <a
-                  href="tel:+61403352321"
-                  className="text-teal-500 font-bold"
-                >
-                  +61403352321
-                </a>
-              </p>
+             
 
             </div>
           </main>

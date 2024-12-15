@@ -41,10 +41,7 @@ const AddAdminForm = () => {
                 Add Admin
               </h3>
               <p className="mt-4 text-sm text-gray-600 dark:text-gray-200 text-center">
-                Add an admin to manage this websites data and users. To login as
-                admin you have to log out from previous account and put the
-                email and password in the login form. It will detect admin
-                automatically and let admins login.
+                Add an admin to manage this websites
               </p>
             </div>
           </div>

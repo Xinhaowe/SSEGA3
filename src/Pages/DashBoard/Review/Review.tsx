@@ -120,3 +120,53 @@ const Review = () => {
 };
 
 export default Review;
+
+import { validateForm } from '../utils/formValidation'; // Hypothetical utility function
+
+describe('Form Validation', () => {
+  it('should return error for missing required fields', () => {
+    const formData = { email: '', password: '' };
+    const result = validateForm(formData);
+    expect(result).toHaveProperty('email', 'Email is required');
+    expect(result).toHaveProperty('password', 'Password is required');
+  });
+
+  it('should validate correct email format', () => {
+    const formData = { email: 'invalidemail', password: 'password123' };
+    const result = validateForm(formData);
+    expect(result).toHaveProperty('email', 'Invalid email format');
+  });
+});
+
+// bookingForm.test.js
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import BookingForm from '../components/BookingForm';
+import axios from 'axios';
+
+jest.mock('axios');
+
+describe('BookingForm Integration Test', () => {
+  it('should submit the form and send a POST request to book a service', async () => {
+    axios.post.mockResolvedValueOnce({ data: { message: 'Booking successful' } });
+
+    render(<BookingForm />);
+
+    fireEvent.change(screen.getByLabelText(/Address/), { target: { value: '123 Main St' } });
+    fireEvent.change(screen.getByLabelText(/City/), { target: { value: 'Test City' } });
+    fireEvent.change(screen.getByLabelText(/Date/), { target: { value: '2024-12-01T12:00' } });
+
+    const submitButton = screen.getByText(/Book Now/);
+    fireEvent.click(submitButton);
+
+    await waitFor(() => expect(axios.post).toHaveBeenCalledTimes(1));
+
+    expect(axios.post).toHaveBeenCalledWith('https://homeservice-ixli.onrender.com/bookingservice', {
+      address: '123 Main St',
+      city: 'Test City',
+      date: '2024-12-01T12:00',
+    });
+
+    // Check if a success message is displayed
+    expect(screen.getByText(/Booking successful/)).toBeInTheDocument();
+  });
+});

@@ -27,40 +27,9 @@ const useFirebase = () => {
   auth.useDeviceLanguage();
 
   const googleProvider = new GoogleAuthProvider();
-  // const twitterProvider = new TwitterAuthProvider();
-
-  // google sign in
+  
   const socialSignIn = (socialProvider: string) => {
     setIsLoading(true);
-    // if (socialProvider === "google") {
-    //   return signInWithPopup(auth, googleProvider)
-    //     .then((result: any) => {
-    //       const user = result.user;
-    //       setError("");
-    //       setShowLoginModal(false);
-    //       saveUser(user.email, user.displayName, "put");
-    //     })
-    //     .catch((error) => {
-    //       setError(error.message);
-    //       setModal(true);
-    //     })
-    //     .finally(() => {
-    //       setIsLoading(false);
-    //     });
-    // } else if (socialProvider === "twitter") {
-    //   return signInWithPopup(auth, twitterProvider)
-    //     .then((result: any) => {
-    //       setError("");
-    //       setShowLoginModal(false);
-    //       // saveUser(result.email, result.displayName, "put");
-    //     })
-    //     .catch((error) => {
-    //       setError(error.message);
-    //     })
-    //     .finally(() => {
-    //       setIsLoading(false);
-    //     });
-    // }
     const provider =
       // socialProvider === "google" ? googleProvider : twitterProvider;
       socialProvider === "google" ? googleProvider : googleProvider;
@@ -78,20 +47,6 @@ const useFirebase = () => {
     } finally {
       setIsLoading(false);
     }
-    // signInWithPopup(auth, provider)
-    //   .then((result: any) => {
-    //     const user = result.user;
-    //     setError("");
-    //     setShowLoginModal(false);
-    //     saveUser(user.email, user.displayName, "put");
-    //   })
-    //   .catch((error) => {
-    //     setError(error.message);
-    //     setModal(true);
-    //   })
-    //   .finally(() => {
-    //     setIsLoading(false);
-    //   });
   };
 
   //   create user with email and password
